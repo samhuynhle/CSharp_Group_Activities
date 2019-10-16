@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col">
+        <h1>
+            Dojo Activity Center
+        </h1>
+    </div>
+    <div class="col">
+        <div class="mt-5">
+            <a class="btn btn-secondary mr-5" href="/home">Home</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mt-5">
+            <a class="btn btn-secondary mr-5" href="/logout"> Log Out</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <h1>@ViewBag.Current_Activity.DojoActivityName</h1>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+        @if(ViewBag.Current_User_Id == ViewBag.Current_Activity.CoordinatorId)
+        {
+            <a class="btn btn-secondary" href="/delete/@ViewBag.Current_Activity.DojoActivityId">Delete</a>
+        }
+        @if(ViewBag.Current_User_Id != ViewBag.Current_Activity.CoordinatorId)
+        {
+            int count = 0;
+            @foreach(var user in ViewBag.Current_Activity.JoinedUsers)
+            {
+                @if(user.User == ViewBag.Current_User)
+                {
+                    <a class="btn btn-secondary" href="/leave/@ViewBag.Current_Activity.DojoActivityId">Leave</a>
+                    count = 1;
+                }
+            }
+            @if(count ==0)
+            {
+                <a class="btn btn-secondary" href="/join/@ViewBag.Current_Activity.DojoActivityId">Join</a>
+            }
+        }
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col">
+        <h3>Event Coordinator: @ViewBag.Current_Activity.Coordinator.FirstName</h3>
+        <h3>Description</h3>
+        <p>@ViewBag.Current_Activity.ActivityDescription</p>
+        <h3>Participatns:</p>
+        <ul>
+            @foreach(var user in @ViewBag.Current_Activity.JoinedUsers)
+            {
+                <li>@user.User.FirstName</li>
+            }
+    </div>
+</div>

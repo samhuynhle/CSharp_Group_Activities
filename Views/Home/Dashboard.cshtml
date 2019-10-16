@@ -1,0 +1,101 @@
+@model User
+<div class="row">
+    <div class="col">
+        <h1>
+            Dojo Activity Center
+        </h1>
+    </div>
+    <div class="col">
+        <h1>
+            Welcome, @Model.FirstName @Model.LastName!
+        </h1>
+    </div>
+    <div class="col">
+        <div class="mt-5">
+            <a class="btn btn-secondary mr-5" href="/logout"> Log Out</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <table>
+        <tr>
+            <th class="p-3">
+                DojoActivity
+            </th>
+            <th class="p-3">
+                Date and Time
+            </th>
+            <th class="p-3">
+                Duration
+            </th>
+            <th class="p-3">
+                Event Coordinator
+            </th>
+            <th class="p-3">
+                No. of Participants
+            </th>
+            <th class="p-3">
+                Actions
+            </th>
+        </tr>
+        @if(ViewBag.AllActivities.Count > 0)
+        {
+            foreach(var activity in ViewBag.AllActivities)
+            {
+                @if(activity.ActivityDate > DateTime.Now)
+                {
+                
+                    <tr class="p-2">
+                        <th class="p-3">
+                            <a href="activity/@activity.DojoActivityId">@activity.DojoActivityName<a>
+                        </th>
+                        <th class="p-3">
+                            @activity.ActivityDate.ToString("MM/dd")
+                            @activity.ActivityTime.ToString("HH:mm")
+                        </th>
+                        <th class="p-3">
+                            @activity.DurationInt
+                            @activity.DurationMeasure
+                        </th>
+                        <th class="p-3">
+                            @activity.Coordinator.FirstName
+                        </th>
+                        <th class="p-3">
+                            @activity.JoinedUsers.Count
+                        </th>
+                        <th class="p-3">
+                            @if(ViewBag.Current_User_Id == activity.CoordinatorId)
+                            {
+                                <a class="btn btn-secondary" href="delete/@activity.DojoActivityId">Delete</a>
+                            }
+                            @if(ViewBag.Current_User_Id != activity.CoordinatorId)
+                            {
+                                int count = 0;
+                                @foreach(var user in activity.JoinedUsers)
+                                {
+                                    @if(user.User == ViewBag.Current_User)
+                                    {
+                                        <a class="btn btn-secondary" href="leave/@activity.DojoActivityId">Leave</a>
+                                        count = 1;
+                                    }
+                                }
+                                @if(count == 0)
+                                {
+                                    <a class="btn btn-secondary" href="join/@activity.DojoActivityId">Join</a>
+                                }
+                            }
+                        </th>
+                    </tr>
+                }
+            }
+        }
+    </table>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+        <a href="new">Add New Activity</a>
+    </div>
+</div>
