@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Sam-Le\\Desktop\\csharp\\applications\\qwerty\\qwerty.csproj",
+  "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\qwerty.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2956,73 +2956,73 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 703
   },
   "RootNamespace": "qwerty",
   "Documents": [
     {
-      "FilePath": "Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\DisplayActivity.cshtml",
-      "TargetPath": "Views\\Home\\DisplayActivity.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\LoginForm.cshtml",
-      "TargetPath": "Views\\Home\\LoginForm.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\DisplayForm.cshtml",
-      "TargetPath": "Views\\Home\\DisplayForm.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\Dashboard.cshtml",
-      "TargetPath": "Views\\Home\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\RegistrationForm.cshtml",
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\RegistrationForm.cshtml",
       "TargetPath": "Views\\Home\\RegistrationForm.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Shared\\_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\Dashboard.cshtml",
+      "TargetPath": "Views\\Home\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\DisplayActivity.cshtml",
+      "TargetPath": "Views\\Home\\DisplayActivity.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\LoginForm.cshtml",
+      "TargetPath": "Views\\Home\\LoginForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Sam\\Desktop\\csharp_projects\\CSharp_Group_Activities\\Views\\Home\\DisplayForm.cshtml",
+      "TargetPath": "Views\\Home\\DisplayForm.cshtml",
       "FileKind": "mvc"
     }
   ],

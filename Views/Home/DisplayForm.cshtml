@@ -1,66 +1,64 @@
 @model IndexViewModel
-<div class="row">
-    <div class="col">
+<div class="row text-center">
+    <div class="col text-left">
         <h1>
             Dojo Activity Center
         </h1>
     </div>
-    <div class="col">
-        <div class="mt-5">
-            <a class="btn btn-secondary mr-5" href="/home">Home</a>
-        </div>
-    </div>
-    <div class="col">
-        <div class="mt-5">
-            <a class="btn btn-secondary mr-5" href="/logout">Log Out</a>
-        </div>
+    <div class="col"></div>
+    <div class="col text-right">
+        <a class="btn btn-secondary mr-5" href="/home">Home</a>
+        <a class="btn btn-secondary mr-5" href="/logout"> Log Out</a>
     </div>
 </div>
 
 
 <div class="row">
-    <h1>Create An Activity</h1>
+    <h2 class="mx-5">Create An Activity</h2>
+    <form asp-action="PostForm" asp-controller="Home" method="post">
+        <input type="hidden" asp-for="newDojoActivity.CoordinatorId" value=@ViewBag.Current_User_Id >
+        <div class="row">
+            <div class="col my-5 mx-5 form-group">
+                <label>Activity Name: </label>
+                <input class="form-control" asp-for="newDojoActivity.DojoActivityName">
+                <span asp-validation-for="newDojoActivity.DojoActivityName"></span>
+                <p style="height: 50px;"></p>
+
+                <label>Activity Date: </label>
+                <input class="form-control" asp-for="newDojoActivity.ActivityDate">
+                <span asp-validation-for="newDojoActivity.ActivityDate"></span>
+            </div>
+            <div class="col my-5 mx-5">
+                <label>Activity Time: </label>
+                <input class="form-control" asp-for="newDojoActivity.ActivityTime">
+                <span asp-validation-for="newDojoActivity.ActivityTime"></span>
+                <p style="height: 50px;"></p>
+
+                <label>Duration: </label>
+                <input class="form-control" asp-for="newDojoActivity.DurationInt">
+                <span asp-validation-for="newDojoActivity.DurationInt"></span>
+                <select class="form-control" asp-for="newDojoActivity.DurationMeasure">
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Hours</option>
+                    <option value="days">Days</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mx-5">
+                <label>Activity Description: </label>
+                <input class="form-control" asp-for="newDojoActivity.ActivityDescription" style="height: 100px; width: 800px;">
+                <span asp-validation-for="newDojoActivity.ActivityDescription"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <input class="btn btn-secondary mt-5" type="submit" value="Add">
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </form>
 </div>
-<form asp-action="PostForm" asp-controller="Home" method="post">
-    <input type="hidden" asp-for="newDojoActivity.CoordinatorId" value=@ViewBag.Current_User_Id >
-    <div class="row">
-        <div class="col my-5 mx-5">
-            <label asp-for="newDojoActivity.DojoActivityName"></label>
-            <input asp-for="newDojoActivity.DojoActivityName">
-            <span asp-validation-for="newDojoActivity.DojoActivityName"></span>
-            <p style="height: 50px;"></p>
-            <label asp-for="newDojoActivity.ActivityDate"></label>
-            <input asp-for="newDojoActivity.ActivityDate">
-            <span asp-validation-for="newDojoActivity.ActivityDate"></span>
-        </div>
-        <div class="col my-5 mx-5">
-            <label asp-for="newDojoActivity.ActivityTime"></label>
-            <input asp-for="newDojoActivity.ActivityTime">
-            <span asp-validation-for="newDojoActivity.ActivityTime"></span>
-            <p style="height: 50px;"></p>
-            <label asp-for="newDojoActivity.DurationInt"></label>
-            <input asp-for="newDojoActivity.DurationInt">
-            <span asp-validation-for="newDojoActivity.DurationInt"></span>
-            <select asp-for="newDojoActivity.DurationMeasure">
-                <option value="minutes">Minutes</option>
-                <option value="hours">Hours</option>
-                <option value="days">Days</option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <label asp-for="newDojoActivity.ActivityDescription"></label>
-            <input asp-for="newDojoActivity.ActivityDescription" style="height: 100px; width: 800px;">
-            <span asp-validation-for="newDojoActivity.ActivityDescription"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-            <input class="btn btn-secondary mt-5" type="submit" value="Add">
-        </div>
-    </div>
-</form>

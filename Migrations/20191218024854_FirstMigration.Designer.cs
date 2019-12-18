@@ -9,8 +9,8 @@ using qwerty.Models;
 namespace qwerty.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20191016182600_Qwerty")]
-    partial class Qwerty
+    [Migration("20191218024854_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
