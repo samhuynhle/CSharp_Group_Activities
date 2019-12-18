@@ -62,28 +62,33 @@ namespace qwerty.Controllers
             // we check if the ModelState is valid, if it isn't we can upload the page with any errors
             if(ModelState.IsValid)
             {
+                // We need to check if there is an email already in our database, entity query
                 if(dbContext.Users.Any(u => u.Email == submittedUser.Email))
                 {
                     ModelState.AddModelError("newUser.Email", "Email is already in use");
                     return View("Index");
                 }
 
+                // If we pass the email check, then we can add the user to the database
                 dbContext.Users.Add(submittedUser);
                 dbContext.SaveChanges();
 
+                // We must hash the password inputted as well
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
                 submittedUser.Password = Hasher.HashPassword(submittedUser, submittedUser.Password);
                 dbContext.SaveChanges();
 
+                // Now we need to set our session data to store user data
                 User current_user = dbContext.Users.FirstOrDefault(u => u.Email == submittedUser.Email);
                 HttpContext.Session.SetInt32("Current_User_Id", current_user.UserId);
                 int user_id = current_user.UserId;
+
                 return Redirect($"home");
             }
             return View("Index");
         }
 
-        // HTTP Post route to handle registering users who submitted login form
+        // HTTP Post route to handle registering users who submitted login form, similar to registration route handling, with update to how we check passwords
         [HttpPost("login")]
         public IActionResult Login(IndexViewModel modelData)
         {
@@ -91,15 +96,21 @@ namespace qwerty.Controllers
             {
                 return View("Index");
             }
+
+            // We initialize the data to be able to check the Login User
             LoginUser submittedUser = modelData.loginUser;
+
             if(ModelState.IsValid)
             {
+                // we need to search our database if the email exists
                 var userInDb = dbContext.Users.FirstOrDefault(u=> u.Email == submittedUser.Email);
                 if (userInDb == null)
                 {
                     ModelState.AddModelError("loginUser.Email", "Invalid Email/Password");
                     return View("Index");
                 }
+
+                // If the email is in the database, we will now check the input password with our database
                 PasswordHasher<LoginUser> hasher = new PasswordHasher<LoginUser>();
                 var result = hasher.VerifyHashedPassword(submittedUser, userInDb.Password, submittedUser.Password);
                 if(result == 0)
@@ -107,6 +118,8 @@ namespace qwerty.Controllers
                     ModelState.AddModelError("loginUser.Password", "Invalid Email/Password");
                     return View("Index");
                 }
+
+                // update session datat to ahve user logged in
                 User current_user = dbContext.Users.FirstOrDefault(u => u.Email == submittedUser.Email);
                 HttpContext.Session.SetInt32("Current_User_Id", current_user.UserId);
                 int user_id = current_user.UserId;
