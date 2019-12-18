@@ -25,27 +25,27 @@ namespace qwerty.Controllers
         {
             dbContext = context;
         }
-        [HttpGet("")]
+        [HttpGet("")] // Landing Page will process the Index.cshtml file, where the login and reg form is
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet("login")]
+        [HttpGet("login")] // preventing users from doing HTTP Get request for /login
         public IActionResult deadLogin()
         {
             return RedirectToAction("Index");
         }
-        [HttpGet("register")]
+        [HttpGet("register")] // preventing users from doing HTTP Get request for /register
         public IActionResult deadRegistration()
         {
             return RedirectToAction("Index");
         }
 
-        [HttpPost("register")]
-        public IActionResult Register(IndexViewModel modelData)
+        [HttpPost("register")] // HTTP Post route to handle registering users who submitted registration form
+        public IActionResult Register(IndexViewModel modelData) // IndexViewModel is the generic model that can be User, LoginUser, Activites, etc.
         {
-            if(modelData == null)
+            if(modelData == null) // Must have data in modelData to register
             {
                 return View("Index");
             }
