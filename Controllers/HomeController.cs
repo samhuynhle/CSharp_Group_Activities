@@ -123,12 +123,13 @@ namespace qwerty.Controllers
                 User current_user = dbContext.Users.FirstOrDefault(u => u.Email == submittedUser.Email);
                 HttpContext.Session.SetInt32("Current_User_Id", current_user.UserId);
                 int user_id = current_user.UserId;
+
                 return Redirect($"home");
             }
             return View("Index");
         }
 
-
+        // Route for landing page after users successfully log in or registered
         [HttpGet("home")]
         public IActionResult Dashboard()
         {
