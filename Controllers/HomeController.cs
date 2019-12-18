@@ -25,32 +25,41 @@ namespace qwerty.Controllers
         {
             dbContext = context;
         }
-        [HttpGet("")] // Landing Page will process the Index.cshtml file, where the login and reg form is
+
+        // Landing Page will process the Index.cshtml file, where the login and reg form is
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet("login")] // preventing users from doing HTTP Get request for /login
+        // preventing users from doing HTTP Get request for /login
+        [HttpGet("login")]
         public IActionResult deadLogin()
         {
             return RedirectToAction("Index");
         }
-        [HttpGet("register")] // preventing users from doing HTTP Get request for /register
+
+        // preventing users from doing HTTP Get request for /register
+        [HttpGet("register")]
         public IActionResult deadRegistration()
         {
             return RedirectToAction("Index");
         }
 
-        [HttpPost("register")] // HTTP Post route to handle registering users who submitted registration form
-        public IActionResult Register(IndexViewModel modelData) // IndexViewModel is the generic model that can be User, LoginUser, Activites, etc.
+        // HTTP Post route to handle registering users who submitted registration form
+        [HttpPost("register")]
+        public IActionResult Register(IndexViewModel modelData) // IndexViewModel is the wrapper model that can be User, LoginUser, Activites objects.
         {
             if(modelData == null) // Must have data in modelData to register
             {
                 return View("Index");
             }
 
+            // initialize the datat into a User object
             User submittedUser = modelData.newUser;
+
+            // we check if the ModelState is valid, if it isn't we can upload the page with any errors
             if(ModelState.IsValid)
             {
                 if(dbContext.Users.Any(u => u.Email == submittedUser.Email))
@@ -74,6 +83,7 @@ namespace qwerty.Controllers
             return View("Index");
         }
 
+        // HTTP Post route to handle registering users who submitted login form
         [HttpPost("login")]
         public IActionResult Login(IndexViewModel modelData)
         {
