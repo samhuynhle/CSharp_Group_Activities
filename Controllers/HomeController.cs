@@ -9,6 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 
+/*
+
+This is the controller section, the "C", in an MVC framework. Here we tell the application to be listening
+to HTTP Requests and have appropriate HTTP Responses. We've imported the Models into this file.
+
+*/
+
 namespace qwerty.Controllers
 {
     public class HomeController : Controller
