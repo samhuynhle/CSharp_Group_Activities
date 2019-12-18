@@ -1,5 +1,6 @@
 namespace qwerty.Models
 {
+    // This is where we are creating many to many relationships between Activities and Users
     public class Association
     {
         public int AssociationId { get; set; }

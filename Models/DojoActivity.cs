@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace qwerty.Models
 {
+    // Object model for Activities. Which have an Id, Name, Date, Time, Duration, Duration Measure,
+    //Description, Coodinator(user), Coordinator ID(user), Created At, Updated At,
+    // and Joined Users(List of Associations)
     public class DojoActivity
     {
         [Key]

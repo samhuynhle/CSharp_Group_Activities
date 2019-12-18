@@ -1,5 +1,6 @@
 namespace qwerty.Models
 {
+    // Wrapper model for handling login, registration, and creating new activities
     public class IndexViewModel
     {
         public User newUser {get;set;}

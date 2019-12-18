@@ -4,6 +4,8 @@ using System;
 
 namespace qwerty.Models
 {
+    // Login User for users trying to log in, gathering email and password inputted
+    // Use this to check database for current users and their passwords
     public class LoginUser
     {
         [Required]
