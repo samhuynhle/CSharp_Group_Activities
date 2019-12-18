@@ -1,18 +1,18 @@
 @model User
 
-<div class="row text-center">
+<div class="row text-center banner">
     <div class="col text-left">
-        <h1>
+        <h1 class="m-3">
             Group Fun
         </h1>
     </div>
     <div class="col">
-        <h1>
+        <h1 class="m-3">
             Welcome, @Model.FirstName @Model.LastName!
         </h1>
     </div>
     <div class="col text-right">
-        <a class="btn btn-secondary mr-5" href="/logout"> Log Out</a>
+        <a class="btn btn-secondary m-3" href="/logout"> Log Out</a>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
     <table class="margin-auto">
         <tr>
             <th class="p-3">
-                DojoActivity
+                Activity
             </th>
             <th class="p-3">
                 Date and Time
@@ -96,6 +96,6 @@
     <div class="col"></div>
     <div class="col"></div>
     <div class="col">
-        <a href="new">Add New Activity</a>
+        <a class="btn btn-secondary" href="new">Add New Activity</a>
     </div>
 </div>

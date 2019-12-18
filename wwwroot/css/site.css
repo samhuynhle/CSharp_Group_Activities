@@ -46,6 +46,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #fcfcfd;
 }
 .footer {
   position: absolute;
@@ -65,11 +66,20 @@ th, tr {
   margin-bottom: 2%;
   width: 100%;
 }
-.container2 {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
 label {
   margin-right: 2%;
+}
+
+.banner {
+  background-color: #ebf0f6;
+  min-height: 150px;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.btn {
+  background-color: #5d6d7f;
 }
