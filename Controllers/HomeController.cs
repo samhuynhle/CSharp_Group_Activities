@@ -134,22 +134,30 @@ namespace qwerty.Controllers
         public IActionResult Dashboard()
         {
             int? current_user_id = HttpContext.Session.GetInt32("Current_User_Id");
+            
+            // security check for Session; if no id was returned from our db request, we return user to landing page
             if(current_user_id == null)
             {
                 HttpContext.Session.Clear();
                 return RedirectToAction("Index");
             }
+
+            // Get full details of the current user
             User current_user = dbContext.Users.FirstOrDefault(u => u.UserId == current_user_id);
+
+            // Get list of activities from database
             List<DojoActivity> AllActivities = dbContext.DojoActivities
                 .Include(a => a.Coordinator)
                 .Include(a => a.JoinedUsers)
                 .ThenInclude(sub => sub.User)
                 .OrderByDescending(a => a.ActivityDate)
                 .ToList();
+
+            // Get list of all the users in the database
             List<User> AllUsers = dbContext.Users.ToList();
 
+            // Store datat to ViewBag to unpack in front-end, Razer
             ViewBag.Current_User = current_user;
-
             ViewBag.Current_User_Id = current_user_id;
             ViewBag.AllActivities = AllActivities;
             ViewBag.AllUsers = AllUsers;
