@@ -145,7 +145,7 @@ namespace qwerty.Controllers
             // Get full details of the current user
             User current_user = dbContext.Users.FirstOrDefault(u => u.UserId == current_user_id);
 
-            // Get list of activities from database
+            // Get list of activities from database, joining data from users who are coordinators/joined users
             List<DojoActivity> AllActivities = dbContext.DojoActivities
                 .Include(a => a.Coordinator)
                 .Include(a => a.JoinedUsers)
