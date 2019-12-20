@@ -1,15 +1,20 @@
-﻿<div class="row mb-5">
+﻿<!-- landing page for all users who are not logged in, this page displays the registration and login form -->
+
+<div class="row mb-5">
     <h1>Welcome to Group Yes!</h1>
 </div>
+
 <div class="row">
-<div class="col">
-<h1 class="font-weight-light mb-3">Register</h1>
-<partial name="RegistrationForm">
-</div>
-<div class="col">
-<div class="col">
-<div class="col">
-<h1 class="font-weight-light mb-3"> Log In</h1>
-<partial name="LoginForm">
-</div>
+    <div class="col">
+        <h1 class="font-weight-light mb-3">Register</h1>
+        <!-- utlizing parials to load both forms on samge page -->
+        <partial name="RegistrationForm">
+    </div>
+    <div class="col">
+    <div class="col">
+    <div class="col">
+        <!-- utlizing parials to load both forms on samge page -->
+        <h1 class="font-weight-light mb-3"> Log In</h1>
+        <partial name="LoginForm">
+    </div>
 </div>
