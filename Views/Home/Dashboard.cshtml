@@ -1,10 +1,13 @@
 <!-- Dashboard Page where users land when they successfully register or log into the application -->
 <!-- Main feature: List of all activities with actions -->
 
+<!-- connected model we are using is the User object, which will be current logged in user -->
 @model User
 
+<!-- psuedo nav bar -->
 <div class="row text-center banner">
     <div class="col text-left">
+        <!-- need simple logo to accomodate -->
         <h1 class="m-3">
             Group Yes
         </h1>
@@ -15,10 +18,13 @@
         </h1>
     </div>
     <div class="col text-right">
+        <!-- logout button sends HTTP GET Request to back-end, preforming logout -->
         <a class="btn btn-secondary m-3" href="/logout"> Log Out</a>
     </div>
 </div>
 
+<!-- Main body section of the page displaying all the activites -->
+<!-- Actions associated with the activities will be dependent on current user's relation with the activity -->
 <div class="row">
     <table class="margin-auto">
         <tr>
@@ -41,13 +47,10 @@
                 Actions
             </th>
         </tr>
-        @if(ViewBag.AllActivities.Count > 0)
-        {
-            foreach(var activity in ViewBag.AllActivities)
-            {
-                @if(activity.ActivityDate > DateTime.Now)
-                {
-                
+        <!-- utlizie .NET's view bag to receive data from back-end -->
+        @if(ViewBag.AllActivities.Count > 0) {
+            foreach(var activity in ViewBag.AllActivities){
+                @if(activity.ActivityDate > DateTime.Now){
                     <tr class="p-2">
                         <th class="p-3">
                             <a href="activity/@activity.DojoActivityId">@activity.DojoActivityName<a>
@@ -67,23 +70,18 @@
                             @activity.JoinedUsers.Count
                         </th>
                         <th class="p-3">
-                            @if(ViewBag.Current_User_Id == activity.CoordinatorId)
-                            {
+                            @if(ViewBag.Current_User_Id == activity.CoordinatorId){
                                 <a class="btn btn-secondary" href="delete/@activity.DojoActivityId">Delete</a>
                             }
-                            @if(ViewBag.Current_User_Id != activity.CoordinatorId)
-                            {
+                            @if(ViewBag.Current_User_Id != activity.CoordinatorId){
                                 int count = 0;
-                                @foreach(var user in activity.JoinedUsers)
-                                {
-                                    @if(user.User == ViewBag.Current_User)
-                                    {
+                                @foreach(var user in activity.JoinedUsers){
+                                    @if(user.User == ViewBag.Current_User){
                                         <a class="btn btn-secondary" href="leave/@activity.DojoActivityId">Leave</a>
                                         count = 1;
                                     }
                                 }
-                                @if(count == 0)
-                                {
+                                @if(count == 0){
                                     <a class="btn btn-secondary" href="join/@activity.DojoActivityId">Join</a>
                                 }
                             }
@@ -94,6 +92,7 @@
         }
     </table>
 </div>
+
 <div class="row">
     <div class="col"></div>
     <div class="col"></div>
